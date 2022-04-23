@@ -1,1 +1,1 @@
-web: gunicorn takatorabatta.wsgi --log-file -
+web: gunicorn flashcardstack.wsgi --log-file -
