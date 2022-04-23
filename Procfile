@@ -1,0 +1,1 @@
+web: gunicorn takatorabatta.wsgi --log-file -
