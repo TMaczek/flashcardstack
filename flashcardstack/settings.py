@@ -26,7 +26,7 @@ SECRET_KEY = '+$xu^y2t))-bts^c1+_n=5ok)qjj1t2s)_p9afnkgk+rkt((b7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['flashcardstack.herokuapp.com']
 
 
 # Application definition
