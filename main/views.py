@@ -3,4 +3,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
-    return HttpResponse('<div>test test 3</div>')
+    return HttpResponse('<div>test test branchy</div>')
