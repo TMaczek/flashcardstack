@@ -5,6 +5,13 @@
 {% endblock title %}
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>  
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
     <div> Login (WIP)</div>
 {% endblock content %}
 
