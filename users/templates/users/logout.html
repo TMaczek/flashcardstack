@@ -12,13 +12,10 @@
             </div>
         {% endfor %}
     {% endif %}
+    <div>You have been loggedOut!</div>
     <div> Login (WIP)</div>
     <div>
-        <form method = "POST" class="form-group">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Log In! -></button>
-        </form>
+        <li><a href="{% url 'login' %}">Login again!</a></li>
     </div>
 {% endblock content %}
 
