@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 import sys
 sys.path.append("..")
@@ -9,17 +10,14 @@ from flashcardstack.database import connection
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
-            login = form.cleaned_data.get('login')
-            password = form.cleaned_data.get('password')
-            DC = connection.DatabaseConnection()
-            DC.addUser(username, login, password)
-            messages.success(request, f'{username} Created succesfuly {login}, {password}')
+            form.save()
+            messages.success(request, f'{username} Created succesfuly')
             return redirect('login')
     else:
-        form = UserRegisterForm()
+        form = UserCreationForm()
     return render(request, 'users/register.html', {'form':form})
 
 
