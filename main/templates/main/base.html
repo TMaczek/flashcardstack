@@ -8,7 +8,11 @@
 </head>
 <body>
     <header>
-        <h1> <a href="/">Flashcardstack</a></h1>
+        {% if user.is_authenticated %}
+            <h1> <a href="/profile">Flashcardstack</a></h1>
+        {% else %}
+            <h1> <a href="/">Flashcardstack</a></h1>
+        {% endif %}
     </header>
     {% block content %} {% endblock %}
 </body>

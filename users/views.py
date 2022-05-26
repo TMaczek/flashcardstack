@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegisterForm
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.contrib import messages
-import sys
-sys.path.append("..")
-from flashcardstack.database import connection
-
+from django.contrib.auth import views as auth_views
 
 
 def register(request):
@@ -21,6 +19,11 @@ def register(request):
     return render(request, 'users/register.html', {'form':form})
 
 
-def login(request):
-    return render(request, 'users/login.html')
+# def login(request):
+#     if request.user.is_authenticated:
+#         return redirect('profile')
+#     return redirect(auth_views.LoginView.as_view(template_name='users/login.html'))
 
+@login_required
+def profile(request):
+    return render(request, 'users/profile.html')
