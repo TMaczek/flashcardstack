@@ -42,6 +42,7 @@ ALLOWED_HOSTS = ['flashcardstack.herokuapp.com', 'localhost','127.0.0.1']
 INSTALLED_APPS = [
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
+    'flashcardstack.apps.FlashCardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pymongo',
+    'djongo',
 ]
 
 MIDDLEWARE = [
@@ -144,7 +146,7 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'main\static'),
 )
 
 LOGIN_REDIRECT_URL = '/profile'
