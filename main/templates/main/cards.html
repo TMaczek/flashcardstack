@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+    <title>Home - Flashcardstack</title>
+{% endblock title %}
+
+
+{% block content %}
+    {% for elem in data %}
+    <div>  
+        {{elem.front_text}}
+    </div>
+    {% endfor %}
+{% endblock content %}

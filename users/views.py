@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
+from flashcardstack.models import Lesson
 
 
 def register(request):
@@ -26,4 +27,6 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    request.session["lesson_id"]=None
+    lessons = Lesson.objects.filter(user = request.user)
+    return render(request, 'users/profile.html', {'lessons':lessons})
