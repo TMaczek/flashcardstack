@@ -6,9 +6,17 @@
 
 
 {% block content %}
-    {% for elem in data %}
     <div>  
-        {{elem.front_text}}
+        {{data.front_text}}
     </div>
-    {% endfor %}
+    <div>
+        {{data.back_text}}
+    </div>
+    
+    <div>
+        <a href="/profile/showcards">Dupa NEXT</a>
+    </div>
+    <div>
+        <a href="/profile/showcards/edit">Dupa EDIT</a>
+    </div>
 {% endblock content %}

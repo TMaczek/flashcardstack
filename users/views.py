@@ -5,6 +5,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from flashcardstack.models import Lesson
+from main.views import clearCurrentFlashcards
 
 
 def register(request):
@@ -20,13 +21,9 @@ def register(request):
     return render(request, 'users/register.html', {'form':form})
 
 
-# def login(request):
-#     if request.user.is_authenticated:
-#         return redirect('profile')
-#     return redirect(auth_views.LoginView.as_view(template_name='users/login.html'))
-
 @login_required
 def profile(request):
+    clearCurrentFlashcards(request)
     request.session["lesson_id"]=None
     lessons = Lesson.objects.filter(user = request.user)
     return render(request, 'users/profile.html', {'lessons':lessons})

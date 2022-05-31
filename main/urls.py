@@ -11,5 +11,6 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
     path('profile/addlesson', views.addLesson, name='addlesson'),
     path('profile/addcard/', views.addCard, name='addcard'),
-    path('profile/showcards/<int:lesson>', views.showCards, name='showcards')
+    path('profile/showcards', views.showCards, name='showcards'),
+    path('profile/loadcards/<int:lesson>', views.loadCards, name='loadcards')
 ]

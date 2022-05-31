@@ -3,6 +3,16 @@ from django.contrib import messages
 from main.forms import AddCardForm, AddLessonForm
 from flashcardstack.models import FlashCard, Lesson
 
+
+currentFlashcards = {}
+# {'user' : [flashcard, flashcard, flashcard...], 'user2' : [f, f, f...]}
+
+def clearCurrentFlashcards(request):
+    print(currentFlashcards)
+    currentFlashcards.pop(request.user, None)
+    print(currentFlashcards)
+
+
 def home(request):
     if request.user.is_authenticated:
         return redirect('profile')
@@ -52,7 +62,22 @@ def addLesson(request):
         form = AddLessonForm()
     return render(request, 'main/addlesson.html', {'form':form})
 
-def showCards(request, lesson):
+def loadCards(request, lesson):
+    currentFlashcards[request.user] = list(FlashCard.objects.filter(lesson_id = lesson))
+    return redirect('showcards')
+
+
+def showCards(request):
     # current_user = request.user
-    data = FlashCard.objects.filter(lesson_id = lesson)
-    return render(request, 'main/cards.html', {'data':data})
+    # data = FlashCard.objects.filter(lesson_id = lesson)
+    # print(currentFlashcards)
+    # current = None
+    if currentFlashcards[request.user]:
+        current = currentFlashcards[request.user][0]
+        print(type(current))
+        currentFlashcards[request.user].pop(0)
+    else:
+        return redirect('profile')
+    return render(request, 'main/cards.html', {'data':current})
+    
+

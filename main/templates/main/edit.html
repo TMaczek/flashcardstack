@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+    <title>Home - Flashcardstack</title>
+{% endblock title %}
+
+
+{% block content %}
+    {% for elem in data %}
+    <div>  
+        {{elem.front_text}} {{elem.back_text}}
+        <button>Usuń flache</button>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="/profile">Dodaj flachy</button>
+        <a href="/profile">Dupa Wroc</a>
+    </div>
+{% endblock content %}
