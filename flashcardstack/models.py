@@ -13,7 +13,7 @@ class FlashCard(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     creation_date = models.DateField(auto_now_add=True)
     date_of_last_notice = models.DateField(auto_now=True)
-    notice_lvl_in_days = models.DecimalField(decimal_places=0, max_digits=5)
+    notice_lvl_in_days = models.IntegerField()
     front_text = models.TextField()
     back_text = models.TextField()
 

@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+    <title>Home - Flashcardstack</title>
+{% endblock title %}
+
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>  
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% for lesson in lessons %}
+    <li>  
+        <a href="editcards/{{lesson.pk}}">{{lesson.title}}</a>
+        <a href="deletelesson/{{lesson.pk}}">Delete {{lesson.title}}</a>
+    </li>
+    {% endfor %}
+    <div>
+        <a href="/profile">Dupa Wroc</a>
+    </div>
+{% endblock content %}
