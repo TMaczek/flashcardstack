@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+    <title>Home - Flashcardstack</title>
+{% endblock title %}
+
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>  
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% for card in cards %}
+    <div>  
+        {{card.front_text}} -> {{card.back_text}}
+        <a href="/profile/deletecard/{{card.pk}}">Delete</a>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="/profile/addcard">Dodaj flachy</button>
+        <a href="/profile">Dupa Wroc</a>
+    </div>
+{% endblock content %}
