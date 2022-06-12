@@ -5,12 +5,28 @@
 {% endblock title %}
 
 {% block content %}
-    <div> Registration (WIP)</div>
     <div>
-        <form method = "POST" class="form-group">
+        <form method = "POST" class="form-group form" id="id_register">
             {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Register -></button>
+
+            <div class="form__input-container">
+            {{ form.username.errors }}
+            <label for="{{ form.message.username }}">Username:</label>
+            {{ form.username }}
+        </div>
+
+            <div class="form__input-container">
+            {{ form.password1.errors }}
+            <label for="{{ form.message.password1 }}">Password:</label>
+            {{ form.password1 }}
+        </div>
+
+            <div class="form__input-container">
+            {{ form.password2.errors }}
+            <label for="{{ form.message.password2 }}">Confirm password:</label>
+            {{ form.password2 }}
+        </div>
+            <button type="submit" class="form__button">Register</button>
         </form>
     </div>
 {% endblock content %}
