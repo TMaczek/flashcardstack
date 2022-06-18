@@ -305,6 +305,7 @@ h3{
     justify-content: center;
     border: black 4px solid;
     border-radius: 15px;
+    position:relative;
 }
 #front input, #back input {
   position: absolute;
