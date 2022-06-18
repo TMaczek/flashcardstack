@@ -12,9 +12,10 @@
             </div>
         {% endfor %}
     {% endif %}
-    <div> Home (WIP)</div>
-        <ul>
-            <li><a href="{% url 'login' %}">Start</a></li>
-        </ul>
+    <div>
+        <form action="{% url 'login' %}" class="form_home" >
+             <button type="submit" class="form__button">Start!</button>
+        </form>
+    </div>
 {% endblock content %}
 

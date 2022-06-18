@@ -7,16 +7,22 @@
 {% block content %}
     {% if messages %}
         {% for message in messages %}
-            <div>  
+            <div class="mess">
                 {{message}}
             </div>
         {% endfor %}
     {% endif %}
-    <form method="post">
+    <form method="post" class="form-group form">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Submit">
+        <br/>
+        <br/>
+        <button type="submit" class="form__button">Create flashcard</button>
+    </form>
+    <br/>
+
+    <form action="{% url 'profile' %}">
+        <button type="submit" class="form__button">End adding cards!</button>
     </form>
 
-    <li><a href="{% url 'profile' %}">End adding cards!</a></li>
 {% endblock content %}

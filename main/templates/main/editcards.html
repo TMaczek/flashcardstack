@@ -8,19 +8,21 @@
 {% block content %}
     {% if messages %}
         {% for message in messages %}
-            <div>  
+            <div class="mess">
                 {{message}}
             </div>
         {% endfor %}
     {% endif %}
     {% for card in cards %}
-    <div>  
+    <div class="edit">
         {{card.front_text}} -> {{card.back_text}}
         <a href="/profile/deletecard/{{card.pk}}">Delete</a>
     </div>
     {% endfor %}
-    <div>
-        <a href="/profile/addcard">Dodaj flachy</button>
-        <a href="/profile">Dupa Wroc</a>
-    </div>
+    <form action="{% url 'addcard' %}">
+        <button type="submit" class="form__button">Add flashcard</button >
+    </form>
+    <form action="{% url 'profile' %}">
+        <button type="submit" class="form__button">Exit</button >
+    </form>
 {% endblock content %}

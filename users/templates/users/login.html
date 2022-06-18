@@ -16,15 +16,15 @@
         <form method = "POST" class="form-group form">
             {% csrf_token %}
             {{form.as_p}}
-            <div class="form__spacer" aria-hidden="true"></div>
             <button type="submit" class="form__button">Log In!</button>
 
         </form>
-        <br/>
-        <form action="{% url 'register' %}" class="form">
-            <button type="submit" class="form__button">Register</button>
-        </form>
 
     </div>
+    <br/>
+    <form action="{% url 'register' %}">
+        <button type="submit" class="form__button">Register</button >
+    </form>
+
 {% endblock content %}
 

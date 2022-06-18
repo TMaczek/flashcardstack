@@ -2,9 +2,9 @@ from django import forms
 from django.forms.widgets import NumberInput
 
 class AddCardForm(forms.Form):
-    front_text = forms.CharField(label="front_text", max_length=200)
-    back_text = forms.CharField(label="back_text", max_length=200)
+    front_text = forms.CharField(label="Title", widget=forms.TextInput(attrs={'class': "form__input"}),max_length=100)
+    back_text = forms.CharField(label="Definition", widget=forms.TextInput(attrs={'class': "form__input"}),max_length=100)
     
 class AddLessonForm(forms.Form):
-    title = forms.CharField(label = "Title", max_length=50)
-    description = forms.CharField(label = "Description", max_length=200)
+    title = forms.CharField(label = "Title", widget=forms.TextInput(attrs={'class': "form__input"}),max_length=100)
+    description = forms.CharField(label = "Description",widget=forms.TextInput(attrs={'class': "form__input"}),max_length=100)

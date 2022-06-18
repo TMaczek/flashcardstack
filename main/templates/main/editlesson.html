@@ -8,18 +8,20 @@
 {% block content %}
     {% if messages %}
         {% for message in messages %}
-            <div>  
+            <div class="mess">
                 {{message}}
             </div>
         {% endfor %}
     {% endif %}
     {% for lesson in lessons %}
-    <li>  
-        <a href="editcards/{{lesson.pk}}">{{lesson.title}}</a>
-        <a href="deletelesson/{{lesson.pk}}">Delete {{lesson.title}}</a>
-    </li>
-    {% endfor %}
-    <div>
-        <a href="/profile">Dupa Wroc</a>
+    <div class="edit">
+        <p class="p1">{{lesson.title}}</p>
+        <a href="editcards/{{lesson.pk}}">Edit</a>
+        <a href="deletelesson/{{lesson.pk}}">Delete</a>
+        <br/>
     </div>
+    {% endfor %}
+    <form action="{% url 'profile' %}">
+        <button type="submit" class="form__button">Exit</button >
+    </form>
 {% endblock content %}

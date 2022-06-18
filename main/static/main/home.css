@@ -26,10 +26,11 @@ body {
     overflow: hidden;
     width: 100vw;
 }
-/**/
+
 .bg {
     height: 100%;
     left: 0;
+    position: absolute;
     overflow: hidden;
     right: 0;
     width: 100%;
@@ -76,45 +77,10 @@ body {
     padding: 36px 24px;
     position: relative;
     text-align: center;
-    width: 100%;
+    width: 75%;
+    margin: 0 auto;
 }
 
-.form__icon {
-    border: solid 3px rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.3);
-    height: 72px;
-    margin: 0 auto 24px;
-    overflow: hidden;
-    position: relative;
-    width: 72px;
-}
-
-.form__icon:before {
-    background: rgba(255, 255, 255, 0.7);
-    bottom: 0;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 24px;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 48px;
-}
-
-.form__icon:after {
-    background: rgba(255, 255, 255, 0.7);
-    bottom: 45%;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 24px;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 24px;
-}
 
 .form__input-container {
     margin-bottom: 32px;
@@ -145,6 +111,7 @@ body {
 .form__input {
     padding: 12px 24px;
     width: 100%;
+
 }
 
 .form__button:after {
@@ -230,16 +197,119 @@ body {
     }
 }
 
-/* rejestracja - tekst pomocniczy */
-
-#id_register > ul, .helptext
+a{
+    position: relative;
+    text-decoration: none;
+}
+header > h1 >a {
+    display: block;
+    margin: 50px;
+    font-size: 100px;
+    font-family:'Comic sans MS';
+}
+a:link {
+    color:blue;
+}
+a:visited {
+  color: blue;
+}
+a:hover {
+  color: blue;
+}
+.form_home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+h2{
+    display: block;
+    margin: 50px;
+    margin-top: 0;
+}
+h3{
+    margin-bottom:15px;
+}
+.lessons{
+     margin-left: auto;
+    margin-right: auto;
+    width:350px;
+    text-align: center;
+}
+.properties{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width:350px;
+    text-align:center;
+}
+.div1{
+    display:flex;
+}
+.div1  a
 {
-    font-family: Helvetica, sans-serif;
-    font-size: 12px;
-    margin: 10px;
+    margin:0 auto;
+    border: 3px black solid;
+    padding: 5px;
+    max-width: 200px;
+    width:70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
 }
 
-/* header */
-header > h1 >a {
-    text-decoration: none;
+.div1  a:hover{
+    background-color:white;
+}
+
+.edit{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+.edit  a
+{
+    margin: 5px 30px 5px 30px;
+    border: 3px black solid;
+    padding: 5px;
+    width:100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+.edit  a:hover{
+    background-color:white;
+}
+.mess{
+    margin:15px;
+    color: black;
+    font-size:30px;
+}
+.p1{
+    width:130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#front, #back{
+    width:800px;
+    height:500px;
+    background-color:white;
+    font-size:80px;
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: black 4px solid;
+    border-radius: 15px;
+}
+#front input, #back input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }

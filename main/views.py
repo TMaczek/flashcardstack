@@ -42,7 +42,7 @@ def addCard(request):
                 back_text = form.cleaned_data['back_text']
             )
             flashCard.save()
-            messages.success(request, f'FlashCard: {flashCard} Created succesfuly')
+            messages.success(request, f'Flashcard created succesfuly!')
             return redirect('addcard')
 
     else:
@@ -62,7 +62,7 @@ def addLesson(request):
                                 )
             lesson.save()
             request.session["lesson_id"]=lesson.pk
-            messages.success(request, f'Lesson: {lesson} Created succesfuly')
+            messages.success(request, f'Lesson created succesfuly!')
             return redirect('addcard')
 
     else:
@@ -112,10 +112,10 @@ def deleteLesson(request, lesson):
     lessonRecord = Lesson.objects.get(id = lesson)
     name = lessonRecord.title
     lessonRecord.delete()
-    messages.success(request, f'Lesson: {name} Deleted succesfuly')
+    messages.success(request, f'Lesson deleted succesfuly!')
     return redirect('editlesson')
 
 def deleteCard(request, card):
     FlashCard.objects.get(id = card).delete()
-    messages.success(request, f'Card Deleted succesfuly')
+    messages.success(request, f'Card deleted succesfuly!')
     return redirect('/profile/editcards/' + str(request.session["lesson_id"]))

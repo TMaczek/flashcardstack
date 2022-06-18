@@ -6,15 +6,38 @@
 
 
 {% block content %}
-    <div>  
-        {{data.front_text}}
-    </div>
-    <div>
-        {{data.back_text}}
-    </div>
-    
-    <div>
-        <a href="/profile/showcards/correct">Dupa NEXT</a>
-        <a href="/profile/showcards/incorrect">Need to repeat</a>
-    </div>
+
+    <label id="front" >{{data.front_text}}<input type="checkbox" onclick="myFunction()"/></label>
+    <label id="back" style="display:none">{{data.back_text}}<input type="checkbox" onclick="myFunction1()"/></label>
+
+    <form action="{% url 'correct' %}">
+        <button type="submit" class="form__button">Next</button >
+    </form>
+    <form action="{% url 'incorrect' %}">
+        <button type="submit" class="form__button">Need to repeat</button >
+    </form>
+    <script>
+    function myFunction() {
+      var checkBox = document.getElementById("front");
+      var text = document.getElementById("back");
+      if (checkBox.checked == true){
+        text.style.display = "none";
+        checkBox.style.display = "flex";
+      } else {
+        text.style.display = "flex";
+        checkBox.style.display = "none";
+      }
+    }
+    function myFunction1() {
+      var checkBox = document.getElementById("front");
+      var text = document.getElementById("back");
+      if (checkBox.checked == true){
+        text.style.display = "flex";
+        checkBox.style.display = "none";
+      } else {
+        text.style.display = "none";
+        checkBox.style.display = "flex";
+      }
+    }
+    </script>
 {% endblock content %}

@@ -6,7 +6,12 @@
     {% block title %} {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'main/home.css' %}">
 </head>
+
 <body>
+    <div class="bg" aria-hidden="true">
+            <div class="bg__dot"></div>
+            <div class="bg__dot"></div>
+    </div>
     <header>
         {% if user.is_authenticated %}
             <h1> <a href="/profile">Flashcardstack</a></h1>
@@ -14,10 +19,7 @@
             <h1> <a href="/">Flashcardstack</a></h1>
         {% endif %}
     </header>
-    {% block content %} {% endblock %}
-    <div class="bg" aria-hidden="true">
-            <div class="bg__dot"></div>
-            <div class="bg__dot"></div>
-    </div>
+     {% block content %} {% endblock %}
 </body>
+
 </html>

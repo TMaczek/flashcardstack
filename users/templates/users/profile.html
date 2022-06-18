@@ -8,19 +8,25 @@
                 </div>
             {% endfor %}
         {% endif %}
-        <h1>Hello {{user.get_username}}!</h1>
+        <h2>Hello {{user.get_username}}!</h2>
 
-        <ul>
-            {% for lesson in lessons %}
-                <li>  
-                    <a href="loadcards/{{lesson.pk}}">{{lesson.title}}</a>
-                </li>
-            {% endfor %}
-        </ul>
-        <ul>
-            <li><a href="{% url 'editlesson' %}">Edit Lesson!</a></li>
-            <li><a href="{% url 'addlesson' %}">Add lesson!</a></li>
-            <li><a href="{% url 'logout' %}">Logout!</a></li>
-        </ul>
+        <div class="div1">
+            <div class="lessons">
+                <h3>Your lessons</h3>
+                {% for lesson in lessons %}
+                <a href="loadcards/{{lesson.pk}}">{{lesson.title}}</a>
+                <br/>
+                {% endfor %}
+            </div>
+            <div class="properties">
+                <h3>Properties</h3>
+                <a href="{% url 'addlesson' %}">Add lesson</a>
+                <br/>
+                <a href="{% url 'editlesson' %}">Edit Lesson</a>
+                <br/>
+                <a href="{% url 'logout' %}">Logout</a>
+                <br/>
+            </div>
+        </div>
     {% endblock content %}
             
