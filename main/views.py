@@ -11,7 +11,6 @@ currentFlashcards = {}
 def clearCurrentFlashcards(request):
     currentFlashcards.pop(request.user, None)
 
-
 def reminder(request):
     lessons = Lesson.objects.filter(user = request.user)
     for lesson in lessons:
@@ -30,7 +29,7 @@ def home(request):
 
 def addCard(request):
     if not request.user.is_authenticated:
-        return redirect('main')
+        return redirect('../')
 
     if request.method == "POST":
         form = AddCardForm(request.POST)
@@ -51,7 +50,7 @@ def addCard(request):
 
 def addLesson(request):
     if not request.user.is_authenticated:
-        return redirect('main')
+        return redirect('../')
 
     if request.method == "POST":
         form = AddLessonForm(request.POST)
